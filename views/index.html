@@ -10,11 +10,15 @@
     text-align: center;
     margin-top: 5%;
 }
+#msg{
+	display: none;
+}
 </style>
 
 <body>
     <div id="con">
         <button id="btn">选择文件</button>
+        <span id="msg">上传中</span>
     </div>
 </body>
 <script src="/js/qiniu.min.js"></script>
@@ -61,6 +65,7 @@ var initQiniuBtn = function(containerId, bottonId, callBack) {
             },
             'BeforeUpload': function(up, file) {
                 console.log('bfupload');
+                document.getElementById('msg').style.display="inline"
                 // 每个文件上传前,处理相关的事情
             },
             'UploadProgress': function(up, file) {
@@ -123,6 +128,12 @@ var ajax = function(method, url, cb, data, dataType) {
 };
 var afterUp = function(data) {
     console.log(data);
+    var json = JSON.parse(data);
+    if (json.succ) {
+    	alert('邮件发送成功')
+    }else{
+    	alert('邮件发送失败')
+    }
 }
 var cb = function(a, b, c) {
     // console.log(a, b, c);
