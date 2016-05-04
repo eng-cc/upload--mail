@@ -42,17 +42,17 @@ var initQiniuBtn = function(containerId, bottonId, callBack) {
         domain: 'http://scc1.qiniu.com',
         //bucket 域名，下载资源时用到，**必需**
         container: containerId, //上传区域DOM ID，默认是browser_button的父元素，
-        max_file_size: '5mb', //最大文件体积限制
+        max_file_size: '50mb', //最大文件体积限制
         flash_swf_url: 'http://jssdk.demo.qiniu.io/js/plupload/Moxie.swf', //引入flash,相对路径
         max_retries: 3, //上传失败最大重试次数
         dragdrop: true, //开启可拖曳上传
         drop_element: containerId, //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
-        chunk_size: '4mb', //分块上传时，每片的体积
+        chunk_size: '40mb', //分块上传时，每片的体积
         auto_start: true, //选择文件后自动上传，若关闭需要自己绑定事件触发上传
         filters: {
             mime_types: [{
                 title: "Image files",
-                extensions: "jpg,jpeg,gif,png,zip"
+                extensions: "jpg,jpeg,gif,png,zip,ppt"
             }]
         },
         multi_selection: false,
